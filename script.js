@@ -42,7 +42,7 @@ function showSkeletons(count = 6) {
   const fragment = document.createDocumentFragment();
 
   for (let i = 0; i < count; i++) {
-    const card = createEl('div', '', 'movie-card skeleton__fade'); // add class for fade
+    const card = createEl('div', '', 'movie-card skeleton__fade'); 
 
     const skeletonImg = createEl('div', '', 'skeleton-card');
     const skeletonTitle = createEl('div', '', 'skeleton-text');
@@ -77,7 +77,7 @@ function renderMovies(movies) {
   const imagePromises = [];
 
   movies.forEach(movie => {
-    const card = createEl('div', '', 'movie-card fade__in.'); // fade__in. for smooth transition
+    const card = createEl('div', '', 'movie-card fade__in.'); 
     let posterDiv;
 
     // Poster exists?
@@ -195,3 +195,6 @@ sortSelect.addEventListener('change', () => {
   const sorted = [...lastMovies].sort(sorters[key]);
   renderMovies(sorted);
 });
+
+// footer year
+document.getElementById('year').textContent = new Date().getFullYear();
