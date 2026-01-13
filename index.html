@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Search</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/284f72c0c9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo__box">
+      <div class="logo">
+        <i class="fa-solid fa-clapperboard"></i>
+      </div>
+    </div>
+
+    <div class="site__title"><h1>The Magnificent Movie Search</h1></div>
+
+    <!-- Hamburger button for mobile -->
+    <button id="navToggle" class="nav-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul class="nav__links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#search">Search</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- SEARCH BLOCK -->
+  <div class="searchBlock">
+    <h1>Movie Search</h1>
+
+    <div class="searchRow">
+      <form id="searchForm" class="searchForm">
+        <input id="searchBox" type="text" placeholder="Type a movie title..." required>
+        <button type="submit">Search</button>
+      </form>
+
+      <div id="sortBar" class="sort-bar hidden">
+        <label for="sortSelect">Sort by:</label>
+        <select id="sortSelect">
+          <option value="">-- choose --</option>
+          <option value="titleAsc">Title A–Z</option>
+          <option value="titleDesc">Title Z–A</option>
+          <option value="yearAsc">Year (oldest)</option>
+          <option value="yearDesc">Year (newest)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results"></div>
+
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
+</body>
+</html>

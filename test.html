@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Debug Movie Search</title>
+  <style>
+    .hidden {display:none}
+    .movie-card {display:inline-block; width:160px; margin:8px; border:1px solid #ccc; text-align:center}
+  </style>
+</head>
+<body>
+  <h1>Debug Movie Search</h1>
+  <form id="searchForm">
+    <input id="searchBox" placeholder="movie title" required>
+    <button>Search</button>
+  </form>
+
+  <div id="sortBar" class="hidden">
+    <label>Sort:</label>
+    <select id="sortSelect">
+      <option value="">--</option>
+      <option value="titleAsc">A-Z</option>
+      <option value="titleDesc">Z-A</option>
+      <option value="yearAsc">Year ↑</option>
+      <option value="yearDesc">Year ↓</option>
+    </select>
+  </div>
+
+  <div id="results"></div>
+
+  <script>
+  const form      = document.getElementById('searchForm');
+  const searchBox = document.getElementById('searchBox');
+  const results   = document.getElementById('results');
+  const sortBar   = document.getElementById('sortBar');
+  const sortSel   = document.getElementById('sortSelect');
+
+  let lastMovies = [];
+
+  const sorters = {
+    titleAsc  : (a,b)=>a.Title.localeCompare(b.Title),
+    titleDesc : (a,b)=>b.Title.localeCompare(a.Title),
+    yearAsc   : (a,b)=>+a.Year - +b.Year,
+    yearDesc  : (a,b)=>+b.Year - +a.Year
+  };
+
+  async function fetchMovies(t){
+    const url = 'http://www.omdbapi.com/?s=' + encodeURIComponent(t) + '&type=movie&apikey=544e1ad3';
+    const res = await fetch(url);
+    const d   = await res.json();
+    return (d.Response==='True') ? d.Search : [];
+  }
+
+  form.addEventListener('submit', async e=>{
+    e.preventDefault();
+    results.textContent = 'Searching…';
+    const movies = await fetchMovies(searchBox.value.trim());
+    if(!movies.length){ results.textContent = 'None found'; return;}
+    lastMovies = movies;
+    render(lastMovies);
+    sortBar.classList.remove('hidden');
+  });
+
+  sortSel.addEventListener('change', ()=>{
+    const key = sortSel.value;
+    if(!key) return;
+    render([...lastMovies].sort(sorters[key]));
+  });
+
+  function render(arr){
+    results.innerHTML = '';
+    arr.forEach(m=>{
+      const card = document.createElement('div');
+      card.className = 'movie-card';
+      card.innerHTML = `<img src="${m.Poster==='N/A'?'':m.Poster}" alt="poster" width="150">
+                        <h3>${m.Title}</h3><p>${m.Year}</p>`;
+      results.appendChild(card);
+    });
+  }
+  </script>
+</body>
+</html>
