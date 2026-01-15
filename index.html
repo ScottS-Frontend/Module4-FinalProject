@@ -1,55 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie Search</title>
-    <link rel="stylesheet" href="styles.css" />
-    <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/284f72c0c9.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <!-- NAVBAR -->
-    <nav class="navbar">
-      <div class="logo__box">
-        <div class="logo">
-          <img
-            src="./Assets/clapperboard.svg"
-            alt="Movie Search logo"
-            class="logo__img"
-          />
-        </div>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Search</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/284f72c0c9.js" crossorigin="anonymous"></script>
+</head>
 
-      <div class="site__title"><h1>The Magnificent Movie Search</h1></div>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo__box">
+      <img src="./Assets/clapperboard.svg" alt="Movie Search logo" class="logo__img" />
+    </div>
+    <div class="site__title"><h1>The Magnificent Movie Search</h1></div>
 
-      <!-- Hamburger button for mobile -->
-      <button id="navToggle" class="nav-toggle">
-        <i class="fa-solid fa-bars"></i>
-      </button>
+    <!-- burger + links -->
+    <button id="navToggle" class="nav-toggle" aria-label="open menu"><i class="fa-solid fa-bars"></i></button>
+    <ul id="navLinks" class="nav__links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#search">Search</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
 
-      <ul class="nav__links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#search">Search</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-    </nav>
-
-    <!-- SEARCH BLOCK -->
-    <div class="searchBlock">
+  <!-- MAIN -->
+  <main class="main main--spaced">
+    <section class="searchBlock">
       <h1>Movie Search</h1>
-
       <div class="searchRow">
         <form id="searchForm" class="searchForm">
-          <input
-            id="searchBox"
-            type="text"
-            placeholder="Type a movie title..."
-            required
-          />
+          <input id="searchBox" type="text" placeholder="Type a movie title..." required />
           <button type="submit">Search</button>
         </form>
 
@@ -64,30 +46,25 @@
           </select>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- RESULTS -->
-    <div id="results"></div>
+    <section class="resultsRow">
+      <div id="results"></div>
+    </section>
+  </main>
 
-    <!-- SCRIPT -->
-    <script src="script.js"></script>
-  </body>
+  <!-- FOOTER -->
   <footer class="site__footer">
     <div class="footer__container">
-      <!-- left column -->
       <div class="footer__col">
         <h3>Magnificent Movie Search</h3>
         <p>Find your favorite films in seconds.</p>
         <div class="socials">
-          <a href="#" aria-label="Facebook"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
           <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
         </div>
       </div>
-
-      <!-- middle column -->
       <div class="footer__col">
         <h3>Quick Links</h3>
         <ul class="quick__links">
@@ -96,8 +73,6 @@
           <li><a href="#about">About</a></li>
         </ul>
       </div>
-
-      <!-- right column -->
       <div class="footer__col">
         <h3>Tech</h3>
         <ul>
@@ -107,10 +82,11 @@
         </ul>
       </div>
     </div>
-
     <div class="footer__bottom">
-      © <span id="year"></span>Scott Slagle | Movie Search | All rights
-      reserved.
+      © <span id="year"></span> Scott Slagle | Movie Search | All rights reserved.
     </div>
   </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>

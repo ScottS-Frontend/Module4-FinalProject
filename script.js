@@ -134,7 +134,7 @@ const sorters = {
    FETCH MOVIES
 ===================== */
 async function fetchMovies(query) {
-  const url = new URL("https://www.omdbapi.com/");
+  const url = new URL("https://www.omdbapi.com/ ");
   url.search = new URLSearchParams({
     s: query,
     type: "movie",
@@ -170,6 +170,9 @@ form.addEventListener("submit", async (e) => {
 
   lastMovies = movies;
 
+  document.querySelector(".main").classList.remove("main--spaced");
+  document.querySelector(".main").classList.add("main--compact")
+
   const skeletonCards = document.querySelectorAll(".skeleton__fade");
   skeletonCards.forEach((card) => (card.style.opacity = "0"));
 
@@ -186,5 +189,10 @@ sortSelect.addEventListener("change", () => {
   renderMovies(sorted);
 });
 
-/* footer year */
-document.getElementById("year").textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('active'));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+});
