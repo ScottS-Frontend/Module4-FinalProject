@@ -1,92 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Movie Search</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://kit.fontawesome.com/284f72c0c9.js" crossorigin="anonymous"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Search</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/284f72c0c9.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body>
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="logo__box">
-      <img src="./Assets/clapperboard.svg" alt="Movie Search logo" class="logo__img" />
-    </div>
-    <div class="site__title"><h1>The Magnificent Movie Search</h1></div>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="logo__box">
+        <img
+          src="./Assets/clapperboard.svg"
+          alt="Movie Search logo"
+          class="logo__img"
+        />
+      </div>
+      <div class="site__title"><h1>The Magnificent Movie Search</h1></div>
 
-    <!-- burger + links -->
-    <button id="navToggle" class="nav-toggle" aria-label="open menu"><i class="fa-solid fa-bars"></i></button>
-    <ul id="navLinks" class="nav__links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#search">Search</a></li>
-      <li><a href="#about">About</a></li>
-    </ul>
-  </nav>
+      <!-- burger + links -->
+      <button id="navToggle" class="nav-toggle" aria-label="open menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul id="navLinks" class="nav__links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#search">Search</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
 
-  <!-- MAIN -->
-  <main class="main main--spaced">
-    <section class="searchBlock">
-      <h1>Movie Search</h1>
-      <div class="searchRow">
-        <form id="searchForm" class="searchForm">
-          <input id="searchBox" type="text" placeholder="Type a movie title..." required />
-          <button type="submit">Search</button>
-        </form>
+    <!-- MAIN -->
+    <main class="main main--spaced">
+      <section class="searchBlock">
+        <h1>Movie Search</h1>
+        <div class="searchRow">
+          <form id="searchForm" class="searchForm">
+            <input
+              id="searchBox"
+              type="text"
+              placeholder="Type a movie title..."
+              required
+            />
+            <button type="submit">Search</button>
+          </form>
 
-        <div id="sortBar" class="sort-bar hidden">
-          <label for="sortSelect">Sort by:</label>
-          <select id="sortSelect">
-            <option value="">-- choose --</option>
-            <option value="titleAsc">Title A–Z</option>
-            <option value="titleDesc">Title Z–A</option>
-            <option value="yearAsc">Year (oldest)</option>
-            <option value="yearDesc">Year (newest)</option>
-          </select>
+          <div id="sortBar" class="sort-bar hidden">
+            <label for="sortSelect">Sort by:</label>
+            <select id="sortSelect">
+              <option value="">-- choose --</option>
+              <option value="titleAsc">Title A–Z</option>
+              <option value="titleDesc">Title Z–A</option>
+              <option value="yearAsc">Year (oldest)</option>
+              <option value="yearDesc">Year (newest)</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="resultsRow">
+        <div id="results"></div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site__footer">
+      <div class="footer__container">
+        <div class="footer__col">
+          <h3>Magnificent Movie Search</h3>
+          <p>Find your favorite films in seconds.</p>
+          <div class="socials">
+            <a href="#" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h3>Quick Links</h3>
+          <ul class="quick__links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#search">Search</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3>Tech</h3>
+          <ul>
+            <li>OMDB API</li>
+            <li>Vanilla JS</li>
+            <li>HTML5 & CSS3</li>
+          </ul>
         </div>
       </div>
-    </section>
-
-    <section class="resultsRow">
-      <div id="results"></div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site__footer">
-    <div class="footer__container">
-      <div class="footer__col">
-        <h3>Magnificent Movie Search</h3>
-        <p>Find your favorite films in seconds.</p>
-        <div class="socials">
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        </div>
+      <div class="footer__bottom">
+        © <span id="year"></span> Scott Slagle | Movie Search | All rights
+        reserved.
       </div>
-      <div class="footer__col">
-        <h3>Quick Links</h3>
-        <ul class="quick__links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#search">Search</a></li>
-          <li><a href="#about">About</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h3>Tech</h3>
-        <ul>
-          <li>OMDB API</li>
-          <li>Vanilla JS</li>
-          <li>HTML5 & CSS3</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      © <span id="year"></span> Scott Slagle | Movie Search | All rights reserved.
-    </div>
-  </footer>
+    </footer>
 
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

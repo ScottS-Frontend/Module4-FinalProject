@@ -171,7 +171,7 @@ form.addEventListener("submit", async (e) => {
   lastMovies = movies;
 
   document.querySelector(".main").classList.remove("main--spaced");
-  document.querySelector(".main").classList.add("main--compact")
+  document.querySelector(".main").classList.add("main--compact");
 
   const skeletonCards = document.querySelectorAll(".skeleton__fade");
   skeletonCards.forEach((card) => (card.style.opacity = "0"));
@@ -189,10 +189,10 @@ sortSelect.addEventListener("change", () => {
   renderMovies(sorted);
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => links.classList.toggle('active'));
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("navToggle");
+  const links = document.getElementById("navLinks");
+  toggle.addEventListener("click", () => links.classList.toggle("active"));
 
-  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById("year").textContent = new Date().getFullYear();
 });
